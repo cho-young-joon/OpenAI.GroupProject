@@ -68,4 +68,6 @@ public class Healer extends BaseEntity{
     @Builder.Default
     @OneToMany(mappedBy = "healer_no",cascade = CascadeType.ALL)
     private List<Post_Like> postLikeList = new ArrayList<>();
+
+
 }

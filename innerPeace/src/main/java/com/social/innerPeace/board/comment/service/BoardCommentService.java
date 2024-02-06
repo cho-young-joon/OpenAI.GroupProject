@@ -10,7 +10,9 @@ public interface BoardCommentService {
 
     Long save(CommentDTO commentDTO);
 
-    List<CommentDTO>findAll(Long postID);
+//    Long modify(CommentDTO commentDTO);
+
+
     default Comment dtoToEntity(CommentDTO dto){
         Comment entity = Comment.builder()
                 .comment_content(dto.getComment_content())

@@ -26,8 +26,8 @@ class InnerPeaceApplicationTests {
 								.build();
 
 		boardCommentService.save(commentDTO);
-		List<CommentDTO> commentDTOList = boardCommentService.findAll(commentDTO.getPost_no());
-log.info(commentDTOList.toString());
+		/*List<CommentDTO> commentDTOList = boardCommentService.findAll(commentDTO.getPost_no());
+log.info(commentDTOList.toString());*/
 	}
 
 }

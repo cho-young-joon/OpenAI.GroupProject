@@ -19,7 +19,7 @@ public class BoardCommentController {
     @PostMapping("/write")
     public ResponseEntity save(@RequestBody CommentDTO commentDTO, @SessionAttribute(name = "loginedHealer") String healer) {
         System.out.println("commentDTO = " + commentDTO);
-        if (healer==null) {
+        if (healer == null) {
             return null;
         }
         commentDTO.setHealerEmail(healer);
@@ -27,7 +27,35 @@ public class BoardCommentController {
         if (saveResult != null) {
             return ResponseEntity.ok(saveResult);
         } else {
-            return new ResponseEntity<>("해당 게시글이 존재하지 않습니다",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("해당 게시글이 존재하지 않습니다", HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostMapping("/modify")
+    public ResponseEntity modify(@RequestBody CommentDTO commentDTO, @SessionAttribute(name = "loginedHealer") String healer) {
+        System.out.println("commentDTO = " + commentDTO);
+        if (healer == null) {
+            return null;
+        }
+        commentDTO.setComment_content(healer);
+//        Long modifyResult = boardCommentService.modify(commentDTO);
+//        if (modifyResult != null){
+//            return ResponseEntity.ok(modifyResult);
+//        }else {
+//            return new ResponseEntity<>("해당 글은 수정 하지 못 했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+        return new ResponseEntity<>("해당 글은 수정 하지 못 했습니다", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+//    @DeleteMapping("/remove")
+//    public ResponseEntity remove(@RequestBody CommentDTO commentDTO, @SessionAttribute(name = "loginedHealer") String healer) {
+//        System.out.println("commentDTO = " + commentDTO);
+//
+//
+//        return BoardCommentService.remove(commentDTO) ==1
+//                ?new ResponseEntity<>("success",HttpStatus.OK)
+//                :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+
 }

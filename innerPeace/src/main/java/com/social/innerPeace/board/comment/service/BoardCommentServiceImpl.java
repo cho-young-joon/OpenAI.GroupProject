@@ -10,6 +10,9 @@ import com.social.innerPeace.repository.HealerRepository;
 import com.social.innerPeace.repository.PostRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import org.apache.catalina.mapper.Mapper;
+import org.apache.juli.logging.Log;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +24,11 @@ public class BoardCommentServiceImpl implements BoardCommentService{
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final HealerRepository healerRepository;
+
+//    @Override
+//    public Long modify(CommentDTO commentDTO) {
+//        List<Post> optionalPost = postRepository.findAll(commentDTO.getComment_content());
+//    }
 
     public Long save(CommentDTO commentDTO) {
         Optional<Post> optionalPost = postRepository.findById(commentDTO.getPost_no());

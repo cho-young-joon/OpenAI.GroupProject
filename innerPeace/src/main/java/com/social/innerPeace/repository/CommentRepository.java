@@ -12,4 +12,8 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment,Long> {
     @Query("select c from Comment as c where c.post_no = :post_no")
     List<Comment>findAllByPostID(@Param("post_no") Long postId);
+
+
+//    @Query("update c set comment_content=#{comment_content}")
+//    List<Comment>findAllByPostComment(@Param("comment_content")Long PostComment);
 }
